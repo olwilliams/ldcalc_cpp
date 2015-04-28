@@ -3,7 +3,6 @@
 #include "dipole.h"
 #include "settings.h"
 #include "results.h"
-#include <vector>
 
 double norm(dipole v);
 double dot(dipole a, dipole b);

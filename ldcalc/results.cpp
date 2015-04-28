@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "results.h"
-#include <vector>
-#include <iostream>
 
 results::results(int new_size)
 {

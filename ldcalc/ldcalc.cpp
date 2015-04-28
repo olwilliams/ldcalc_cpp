@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <iostream>
-#include <vector>
 #include "dipole.h"
 #include "settings.h"
 #include "functions.h"

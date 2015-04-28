@@ -3,7 +3,6 @@
 #include "dipole.h"
 #include "results.h"
 #include <cmath>
-#include <vector>
 #include <random>
 #include <chrono>
 #include <fstream>

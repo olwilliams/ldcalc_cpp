@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "dipole.h"
 #include "functions.h"
-#include <iostream>
-#include <cassert>
 
 dipole::dipole(double x, double y, double z)
 {

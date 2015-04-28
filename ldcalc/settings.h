@@ -1,7 +1,6 @@
 #pragma once
 
 #include "dipole.h"
-#include <iostream>
 
 class settings
 {

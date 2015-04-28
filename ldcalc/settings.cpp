@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "settings.h"
 #include "dipole.h"
-#include <iostream>
 
 settings::settings(dipole new_spherical_position, dipole new_probe1, dipole new_probe2, dipole new_excitation, double new_dipole_angle, int new_number_particles, int new_number_steps, double new_scale)
 {
