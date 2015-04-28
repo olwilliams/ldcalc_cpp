@@ -45,7 +45,11 @@ dipole operator*(dipole a, double c)
 
 dipole operator/(dipole a, double c)
 {
-	assert(c != 0);
+	if (c == 0)
+	{ 
+		std::cerr << "Division by zero is not allowed." << std::endl;
+		return a;
+	}
 	double x = a.m_x / c;
 	double y = a.m_y / c;
 	double z = a.m_z / c;

@@ -62,6 +62,5 @@ int main()
 	{
 		menu(options, new_result);
 	}
-
 	return 0;
 }

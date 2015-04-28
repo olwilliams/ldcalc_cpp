@@ -25,6 +25,8 @@ double dot(dipole a, dipole b)
 
 dipole rotate(dipole v, dipole axis, double degangle)
 {
+	//Uses a rotation matrix to rotate a vector about an arbitrary axis. The rotation angle is given in degrees
+	//and converted to radians.
 	double x = v.get_x();
 	double y = v.get_y();
 	double z = v.get_z();
@@ -66,7 +68,7 @@ double randangle()
 
 double check_theta(double oldtheta)
 {
-	//Make sure that thetais in the interval [0, 360) degrees.
+	//Make sure that theta is in the interval [0, 360) degrees.
 	double theta = oldtheta;
 	while (theta >= 360)
 	{
@@ -100,6 +102,7 @@ double check_phi(double oldphi)
 
 dipole sphere_to_cart(dipole sphere_vector)
 {
+	//Convert spherical coordinates (r, theta, phi) to Cartesian coordinates (x, y, z)
 	const double pi = 3.14159265358979323846264338327950288;
 	double r = sphere_vector.get_x();
 	double theta = sphere_vector.get_y() * pi / 180;
@@ -129,10 +132,11 @@ void run(results& new_result, settings options)
 	double dipole_angle = options.get_dipole_angle();
 	double scale = options.get_scale();
 	new_result.change_size(number_steps);
+
 	//Initialize the collection of dipoles
 
 	/* Define dipole location: the dipole angle is added and subtracted from the membrane normal vector. 
-	We choose te direction that has the most projection along the excitation direction. */
+	We choose the direction that has the most projection along the excitation direction. */
 	dipole positive_dipole;
 	positive_dipole.init(sphere_position.get_x(), check_theta(sphere_position.get_y()), check_phi(sphere_position.get_z() + dipole_angle));
 	positive_dipole = sphere_to_cart(positive_dipole);
@@ -201,4 +205,5 @@ void save_results(results& new_result)
 		save_file << new_result.get_ld()[n] << "\n";
 	}
 	save_file.close();
+	cout << "Results saved as " << save_name << endl;
 }
