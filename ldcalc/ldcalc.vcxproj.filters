@@ -33,6 +33,15 @@
     <ClInclude Include="results.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="simplex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nelder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="results.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nelder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="simplex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
