@@ -1,12 +1,16 @@
 #include "stdafx.h"
-#include "functions.h"
-#include "dipole.h"
-#include "results.h"
+
 #include <cmath>
 #include <random>
 #include <chrono>
 #include <fstream>
 #include <sstream>
+
+#include "functions.h"
+#include "dipole.h"
+#include "results.h"
+#include "nelder.h"
+#include "fit.h"
 
 double norm(dipole v)
 {
@@ -181,10 +185,14 @@ void run(results& new_result, settings options)
 		}
 		new_result.add_point(t, abs1, abs2);
 	}
-	//new_result.print();
+	fit guess(number_steps / 2, new_result.get_ld()[number_steps / 2], new_result.get_ld()[number_steps - 1]);
+	double tolerance = 1e-10;
+	fit ld_fit = nelder_mead(new_result, guess, tolerance);
+	std::cout << "\nFitting parameters:\n" << "Time constant: " << ld_fit.get_tau() << "\nAmplitude: " << ld_fit.get_amplitude() << "\nConstant: " << ld_fit.get_constant() << std::endl;
+
 	auto end = std::chrono::steady_clock::now();
 	auto diff = end - start;
-	std::cout << "Time elapsed: " << std::chrono::duration<double>(diff).count() << " seconds" << std::endl;
+	std::cout << "\nTime elapsed: " << std::chrono::duration<double>(diff).count() << " seconds" << std::endl;
 }
 
 void save_results(results& new_result)
